@@ -8,16 +8,14 @@ class GenerateCorpora:
     """
     Generate corpus (file) from corpora (directory)
 
-    Use examples:
+    Because this generator generate corpus, not a line of each corpus,
+    you should loop twice to get lines from each corpus.
+
+    Use examples (to get lines from each corpus):
         generate_corpora = GenerateCorpora(dirs)
         for corpus in corpora:
-            do something
-
-    Args:
-        # dirs: 하위 파일을 가지고 있는 디렉토리 (리스트/단일)
-        #     리스트의 각 요소는 하위 파일을 가지고 있는 디렉토리
-        #     각 요소에 os.listdir() 메서드를 적용할 수 있어야 함
-
+            for line in corpus:
+                do something
     """
 
     def __init__(self, file_pattern, unicode=False):
@@ -37,8 +35,11 @@ class GenerateCorpora:
         """
         Read data from single file omitting empty line
 
-        :param fname: [str] (general file or pickle object) file name to read
-        :return data: [list] list of file lines
+        Args:
+            fname: [str] (general file or pickle object) file name to read
+
+        Return:
+            data: [list] list of file lines
         """
         if self.unicode:
             with open(fname, 'rb') as f:
