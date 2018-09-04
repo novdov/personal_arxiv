@@ -22,9 +22,10 @@ class GenerateCorpora:
 
     def __init__(self, file_pattern, unicode=False):
         """
-        :param file_pattern: [str] pattern to use glob.iglob to make list of files
-                         glob.iglob(file_pattern) should return files (not a directory)
-        :param unicode: [boolean] read file by binary if file is encoded by unicode
+        Args:
+            file_pattern: [str] pattern to use glob.iglob to make list of files
+                            glob.iglob(file_pattern) should return files (not a directory)
+            unicode: [boolean] read file by binary if file is encoded by unicode
         """
         # if not isinstance(dirs, list):
         #     dirs = [dirs]
